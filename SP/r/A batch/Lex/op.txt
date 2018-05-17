@@ -1,0 +1,240 @@
+
+Keyword  public 
+Keyword  class 
+Identifiers  BubbleSortExample 
+brace_open {  
+    
+Keyword  static 
+Keyword  void 
+Identifiers  bubbleSort
+paranthesis_open (
+Keyword  int[] 
+Identifiers  arr
+paranthesis_open ) 
+brace_open {  
+        
+Keyword  int 
+Identifiers  n 
+Relational Operators  = 
+Identifiers  arr
+Punctuation Chars  .
+Identifiers  length;  
+        
+Keyword  int 
+Identifiers  temp 
+Relational Operators  = 
+Constants  0;  
+        
+Keyword  for
+paranthesis_open (
+Keyword  int 
+Identifiers  i
+Relational Operators  =
+Constants  0; 
+Identifiers  i 
+Relational Operators  < 
+Identifiers  n; 
+Identifiers  i
+Arithmetic Operators  ++
+paranthesis_open )
+brace_open {  
+            
+Keyword  for
+paranthesis_open (
+Keyword  int 
+Identifiers  j
+Relational Operators  =
+Constants  1; 
+Identifiers  j 
+Relational Operators  < 
+paranthesis_open (
+Identifiers  n-
+Identifiers  i
+paranthesis_open ); 
+Identifiers  j
+Arithmetic Operators  ++
+paranthesis_open )
+brace_open {  
+                
+Keyword  if
+paranthesis_open (
+Identifiers  arr[
+Identifiers  j
+Constants  -1] 
+Relational Operators  > 
+Identifiers  arr[
+Identifiers  j]
+paranthesis_open )
+brace_open {  
+                    
+Arithmetic Operators  //
+Identifiers  swap 
+Identifiers  elements  
+                    
+Identifiers  temp 
+Relational Operators  = 
+Identifiers  arr[
+Identifiers  j
+Constants  -1];  
+                    
+Identifiers  arr[
+Identifiers  j
+Constants  -1] 
+Relational Operators  = 
+Identifiers  arr[
+Identifiers  j];  
+                    
+Identifiers  arr[
+Identifiers  j] 
+Relational Operators  = 
+Identifiers  temp;  
+                
+brace_close }                
+            
+brace_close }  
+        
+brace_close }  
+    
+brace_close }  
+
+    
+Keyword  public 
+Keyword  static 
+Keyword  void 
+Keyword  main
+paranthesis_open (
+Keyword  String[] 
+Keyword  args
+paranthesis_open ) 
+brace_open {  
+        
+Keyword  int 
+Identifiers  arr[] 
+Relational Operators  =
+brace_open {
+Constants  3
+Constants  ,60
+Constants  ,35
+Constants  ,2
+Constants  ,45
+Constants  ,320
+Constants  ,5
+brace_close };  
+         
+        
+Keyword  System
+Punctuation Chars  .
+Keyword  out
+Punctuation Chars  .
+Keyword  println
+paranthesis_open (
+Punctuation Chars  "
+Identifiers  Array 
+Identifiers  Before 
+Identifiers  Bubble 
+Identifiers  Sort
+Punctuation Chars  "
+paranthesis_open );  
+        
+Keyword  for
+paranthesis_open (
+Keyword  int 
+Identifiers  i
+Relational Operators  =
+Constants  0; 
+Identifiers  i 
+Relational Operators  < 
+Identifiers  arr
+Punctuation Chars  .
+Identifiers  length; 
+Identifiers  i
+Arithmetic Operators  ++
+paranthesis_open )
+brace_open {  
+                
+Keyword  System
+Punctuation Chars  .
+Keyword  out
+Punctuation Chars  .
+Identifiers  print
+paranthesis_open (
+Identifiers  arr[
+Identifiers  i] 
+Arithmetic Operators  + 
+Punctuation Chars  " 
+Punctuation Chars  "
+paranthesis_open );  
+        
+brace_close }  
+        
+Keyword  System
+Punctuation Chars  .
+Keyword  out
+Punctuation Chars  .
+Keyword  println
+paranthesis_open (
+paranthesis_open );  
+          
+        
+Identifiers  bubbleSort
+paranthesis_open (
+Identifiers  arr
+paranthesis_open );
+Arithmetic Operators  //
+Identifiers  sorting 
+Identifiers  array 
+Identifiers  elements 
+Identifiers  using 
+Identifiers  bubble 
+Identifiers  sort  
+         
+        
+Keyword  System
+Punctuation Chars  .
+Keyword  out
+Punctuation Chars  .
+Keyword  println
+paranthesis_open (
+Punctuation Chars  "
+Identifiers  Array 
+Identifiers  After 
+Identifiers  Bubble 
+Identifiers  Sort
+Punctuation Chars  "
+paranthesis_open );  
+        
+Keyword  for
+paranthesis_open (
+Keyword  int 
+Identifiers  i
+Relational Operators  =
+Constants  0; 
+Identifiers  i 
+Relational Operators  < 
+Identifiers  arr
+Punctuation Chars  .
+Identifiers  length; 
+Identifiers  i
+Arithmetic Operators  ++
+paranthesis_open )
+brace_open {  
+                
+Keyword  System
+Punctuation Chars  .
+Keyword  out
+Punctuation Chars  .
+Identifiers  print
+paranthesis_open (
+Identifiers  arr[
+Identifiers  i] 
+Arithmetic Operators  + 
+Punctuation Chars  " 
+Punctuation Chars  "
+paranthesis_open );  
+        
+brace_close }  
+
+    
+brace_close }  
+
+brace_close }

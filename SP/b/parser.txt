@@ -1,0 +1,93 @@
+import java.util.*;
+import java.lang.*;
+public class Parser {
+    static char[] stack = new char[50];
+    static int top;
+    static ArrayList <Table> prods = new ArrayList <Table> ();
+    public static void main(String[] args) {
+        top = -1;
+        prods.add(new Table('E', 'i', "TX"));
+        prods.add(new Table('E', '(', "TX"));
+        prods.add(new Table('X', '+', "+TX"));
+        prods.add(new Table('X', ')', "^"));
+        prods.add(new Table('X', '$', "^"));
+        prods.add(new Table('T', 'i', "FY"));
+        prods.add(new Table('T', '(', "FY"));
+        prods.add(new Table('Y', '+', "^"));
+        prods.add(new Table('Y', '*', "*FY"));
+        prods.add(new Table('Y', ')', "^"));
+        prods.add(new Table('Y', '$', "^"));
+        prods.add(new Table('F', 'i', "i"));
+        prods.add(new Table('F', '(', "(E)"));
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the input to be checked");
+        String input = sc.next();
+        push('$');
+        push('E');
+        for (int i = 0; i < input.length();) {
+            char tsym = stack[top];
+            boolean found = false;
+
+            System.out.println("\nCurrent i/p: "+input.charAt(i));
+            System.out.println("Stack: ");
+            for (int j=0; j<=top; j++) {
+                System.out.print(stack[j]+"\t");
+            }
+
+            if (stack[top] == '$' && input.charAt(i) == '$') {
+                System.out.println("String is derivable");
+                break;
+            }
+            if (stack[top] == '^') {
+                pop();
+                continue;
+            }
+            if (stack[top] == input.charAt(i)) {
+                i++;
+                pop();
+                continue;
+            }
+            for (int j = 0; j < prods.size(); j++) {
+                Table x = prods.get(j);
+                if (x.column == input.charAt(i) && x.row == tsym) {
+                    found = true;
+                    String result = x.prods;
+                    pop();
+                    for (int k = result.length() - 1; k >= 0; k--) {
+                        push(result.charAt(k));
+                    }
+                }
+            }
+
+            if (!found) {
+                System.out.println("String is not derivable");
+                break;
+            }
+        }
+    }
+    static void pop() {
+        top--;
+        //return stack[top--];
+    }
+    static void push(char x) {
+        stack[++top] = x;
+    }
+}
+
+class Table {
+    public char row, column;
+    public String prods;
+
+    public Table(char row, char column, String prods) {
+        this.row = row;
+        this.column = column;
+        this.prods = prods;
+    }
+
+}
+
+/*
+i+i$
+i+i*i$
+*/

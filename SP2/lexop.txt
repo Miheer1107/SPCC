@@ -1,0 +1,134 @@
+Lex code code.l file
+*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	
+%{
+#include<stdio.h>
+%}
+%%
+bool|int|float|class|public|main|static|void|for|if printf("Keyword");
+[-,+]?[0-9]+ printf("Constants");
+[,.'"]+ printf("Punctuation Chars");
+[!@#$%^&*()]+ printf("Special Chars");
+[a-zA-Z]+ printf("Identifiers");
+[+,-,*,/,]+ printf("Operators");
+%%
+main(){yylex();}
+*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	
+
+Java Source File
+
+    public class BubbleSortExample {  
+        static void bubbleSort(int[] arr) {  
+            int n = arr.length;  
+            int temp = 0;  
+             for(int i=0; i < n; i++){  
+                     for(int j=1; j < (n-i); j++){  
+                              if(arr[j-1] > arr[j]){  
+                                     //swap elements  
+                                     temp = arr[j-1];  
+                                     arr[j-1] = arr[j];  
+                                     arr[j] = temp;  
+                             }  
+                              
+                     }  
+             }  
+      
+        }  
+        public static void main(String[] args) {  
+                    int arr[] ={3,60,35,2,45,320,5};  
+                     
+                    System.out.println("Array Before Bubble Sort");  
+                    for(int i=0; i < arr.length; i++){  
+                            System.out.print(arr[i] + " ");  
+                    }  
+                    System.out.println();  
+                      
+                    bubbleSort(arr);//sorting array elements using bubble sort  
+                     
+                    System.out.println("Array After Bubble Sort");  
+                    for(int i=0; i < arr.length; i++){  
+                            System.out.print(arr[i] + " ");  
+                    }  
+       
+            }  
+    }  
+
+
+OUTPUT:
+*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	
+students@celab6-07:~$ cd Desktop/
+students@celab6-07:~/Desktop$ lex code.l
+students@celab6-07:~/Desktop$ cc lex.yy.c -ll
+students@celab6-07:~/Desktop$ ./a.out
+public class BubbleSortExample {  
+        static void bubbleSort(int[] arr) {  
+            int n = arr.length;  
+            int temp = 0;  
+             for(int i=0; i < n; i++){  
+                     for(int j=1; j < (n-i); j++){  
+                              if(arr[j-1] > arr[j]){  
+                                     //swap elements  
+                                     temp = arr[j-1];  
+                                     arr[j-1] = arr[j];  
+                                    Keyword Keyword Identifiers {  
+ arr[j] = temp;  
+                             }  
+                              
+                     }  
+             }  
+      
+        }  
+        public static void main(String[] args) {  
+                    int arr[] ={3,60,35,2,45,320,5};         Keyword Keyword IdentifiersSpecial CharsKeyword[] IdentifiersSpecial Chars {  
+ 
+                     
+                    System.out.println("Array Before Bubble Sort");  
+                    for(int i=0; i < arr.length; i++){  
+                            System.out.print(arr[i] + " ");  
+                    }  
+                   Keyword Identifiers = IdentifiersPunctuation CharsIdentifiers;  
+             System.out.println();  
+                      
+                    bubbleSort(arr);//sorting array elements using bubble sort  
+                     
+                    System.out.println("Array After Bubble Sort");  
+                          Keyword Identifiers = Constants;  
+      for(int i=0; i < arr.length; i++){  
+                            System.out.print(arr[i] + " ");  
+                    }  
+       
+            }  
+    }  
+    
+                               IdentifiersSpecial CharsKeyword Identifiers=Constants; Identifiers < Identifiers; IdentifiersOperatorsSpecial Chars{  
+                     IdentifiersSpecial CharsKeyword Identifiers=Constants; Identifiers < Special CharsIdentifiers-IdentifiersSpecial Chars; IdentifiersOperatorsSpecial Chars{  
+                              IdentifiersSpecial CharsIdentifiers[IdentifiersConstants] > Identifiers[Identifiers]Special Chars{  
+                                     OperatorsIdentifiers Identifiers  
+                                     Identifiers = Identifiers[IdentifiersConstants];  
+                                     Identifiers[IdentifiersConstants] = Identifiers[Identifiers];  
+                                     Identifiers[Identifiers] = Identifiers;  
+                             }  
+                              
+                     }  
+             }  
+      
+        }  
+        Keyword Keyword Keyword KeywordSpecial CharsIdentifiers[] IdentifiersSpecial Chars {  
+                    Keyword Identifiers[] ={ConstantsConstantsConstantsConstantsConstantsConstantsConstants};  
+                     
+                    KeywordPunctuation CharsKeywordPunctuation CharsKeywordSpecial CharsPunctuation CharsIdentifiers Identifiers Identifiers IdentifiersPunctuation CharsSpecial Chars;  
+                    IdentifiersSpecial CharsKeyword Identifiers=Constants; Identifiers < IdentifiersPunctuation CharsIdentifiers; IdentifiersOperatorsSpecial Chars{  
+                            KeywordPunctuation CharsKeywordPunctuation CharsIdentifiersSpecial CharsIdentifiers[Identifiers] Operators Punctuation Chars Punctuation CharsSpecial Chars;  
+                    }  
+                    KeywordPunctuation CharsKeywordPunctuation CharsKeywordSpecial Chars;  
+                      
+                    IdentifiersSpecial CharsIdentifiersSpecial Chars;OperatorsIdentifiers Identifiers Identifiers Identifiers Identifiers Identifiers  
+                     
+                    KeywordPunctuation CharsKeywordPunctuation CharsKeywordSpecial CharsPunctuation CharsIdentifiers Identifiers Identifiers IdentifiersPunctuation CharsSpecial Chars;  
+                    IdentifiersSpecial CharsKeyword Identifiers=Constants; Identifiers < IdentifiersPunctuation CharsIdentifiers; IdentifiersOperatorsSpecial Chars{  
+                            KeywordPunctuation CharsKeywordPunctuation CharsIdentifiersSpecial CharsIdentifiers[Identifiers] Operators Punctuation Chars Punctuation CharsSpecial Chars;  
+                    }  
+       
+            }  
+    }  
+    
+

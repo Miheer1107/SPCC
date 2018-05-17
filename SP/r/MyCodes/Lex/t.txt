@@ -1,0 +1,244 @@
+
+Keyword  public 
+Keyword  class 
+id BubbleSortExample 
+brace_open {  
+    
+Keyword  static 
+Keyword  void 
+id bubbleSort
+paranthesis_open (
+Keyword  int[] 
+id arr
+paranthesis_open ) 
+brace_open {  
+        
+Keyword  int 
+id n 
+assign_op = 
+id arr
+dot_access
+id length
+delim  
+        
+Keyword  int 
+id temp 
+assign_op = 
+float_constant 0.0
+delim  
+        
+Keyword  for
+paranthesis_open (
+Keyword  int 
+id i
+assign_op =
+int_const 0
+delim 
+id i 
+rel_op < 
+id n
+delim 
+id i
+artihmetic_op ++
+paranthesis_open )
+brace_open {  
+            
+Keyword  for
+paranthesis_open (
+Keyword  int 
+id j
+assign_op =
+int_const 1
+delim 
+id j 
+rel_op < 
+paranthesis_open (
+id n-
+id i
+paranthesis_open )
+delim 
+id j
+artihmetic_op ++
+paranthesis_open )
+brace_open {  
+                
+Keyword  if
+paranthesis_open (
+id arr[
+id j-
+int_const 1] 
+rel_op > 
+id arr[
+id j]
+paranthesis_open )
+brace_open {  
+                    
+                    
+id temp 
+assign_op = 
+id arr[
+id j-
+int_const 1]
+delim  
+                    
+id arr[
+id j-
+int_const 1] 
+assign_op = 
+id arr[
+id j]
+delim  
+                    
+id arr[
+id j] 
+assign_op = 
+id temp
+delim  
+                
+brace_close }                
+            
+brace_close }  
+        
+brace_close }  
+    
+brace_close }  
+
+    
+Keyword  public 
+Keyword  static 
+Keyword  void 
+Keyword  main
+paranthesis_open (
+Keyword  String[] 
+Keyword  args
+paranthesis_open ) 
+brace_open {  
+        
+Keyword  int 
+id arr[] 
+assign_op =
+brace_open {
+float_constant 3.24
+separator
+int_const 60
+separator
+float_constant 35.00
+separator
+int_const 2
+separator
+int_const 45
+separator
+int_const 320
+separator
+int_const 5
+brace_close }
+delim  
+         
+        
+id System
+dot_access
+id out
+dot_access
+id println
+paranthesis_open (
+str_constant "Array Before Bubble Sort"
+paranthesis_open )
+delim  
+        
+Keyword  for
+paranthesis_open (
+Keyword  int 
+id i
+assign_op =
+int_const 0
+delim 
+id i 
+rel_op < 
+id arr
+dot_access
+id length
+delim 
+id i
+artihmetic_op ++
+paranthesis_open )
+brace_open {  
+                
+id System
+dot_access
+id out
+dot_access
+id print
+paranthesis_open (
+id arr[
+id i] 
+artihmetic_op + 
+str_constant " "
+paranthesis_open )
+delim  
+        
+brace_close }  
+        
+id System
+dot_access
+id out
+dot_access
+id println
+paranthesis_open (
+paranthesis_open )
+delim  
+          
+        
+id bubbleSort
+paranthesis_open (
+id arr
+paranthesis_open )
+delim
+         
+        
+id System
+dot_access
+id out
+dot_access
+id println
+paranthesis_open (
+str_constant "Array After Bubble Sort"
+paranthesis_open )
+delim  
+        
+Keyword  for
+paranthesis_open (
+Keyword  int 
+id i
+assign_op =
+int_const 0
+delim 
+id i 
+rel_op < 
+id arr
+dot_access
+id length
+delim 
+id i
+artihmetic_op ++
+paranthesis_open )
+brace_open {  
+                
+id System
+dot_access
+id out
+dot_access
+id print
+paranthesis_open (
+id arr[
+id i] 
+artihmetic_op + 
+str_constant " "
+paranthesis_open )
+delim  
+        
+brace_close }  
+
+    
+brace_close }  
+
+brace_close }

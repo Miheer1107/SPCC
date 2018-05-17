@@ -1,0 +1,94 @@
+import java.util.*;
+import java.io.*;
+
+public class Left {
+
+	public static void main(String args[]){
+        String rule_input = new String();
+        ArrayList<String> initial_rules = new ArrayList<String>();
+        ArrayList<String> recursive;
+        ArrayList<String> nonrecursive;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of productions");
+        int n = sc.nextInt();
+		System.out.println("Enter productions");
+		sc = new Scanner(System.in);
+        for(int j = 0; j < n; j++){
+            rule_input = sc.nextLine();
+            initial_rules.add(rule_input);
+        }
+
+        System.out.println("\n\n");
+        
+        for(String rule : initial_rules){
+
+            recursive = new ArrayList<String>();
+            nonrecursive = new ArrayList<String>();
+
+            String prod_split[] = rule.split(" -> ");
+
+            String left = prod_split[0];
+            String right[] = prod_split[1].split("\\|");
+
+            for(String prod : right){
+                if(prod.substring(0, 1).equals(left)){
+                    recursive.add(prod);
+                }
+                else{
+                    nonrecursive.add(prod);
+                }
+            }
+
+            if (recursive.size() > 0){
+                System.out.println("\nAfter removal of left recursion:");
+                String new_rule1 = left + " -> ";
+                String new_nonterm = left + "'";
+
+                ArrayList<String> new_prods1 = new ArrayList<String>();
+                ArrayList<String> new_prods2 = new ArrayList<String>();
+
+                for(String prod : nonrecursive){
+                    new_prods1.add(prod + new_nonterm);
+                }
+
+                new_rule1 =  new_rule1 + String.join("|", new_prods1);
+
+                String new_rule2 = new_nonterm + " -> ";
+
+                for(String prod : recursive){
+                    new_prods2.add(prod.substring(1, prod.length()) + new_nonterm);
+                }
+                new_prods2.add("@");
+
+                new_rule2 =  new_rule2 + String.join("|", new_prods2);
+
+                System.out.println(new_rule1);
+                System.out.println(new_rule2);
+
+            }
+            else{
+                System.out.println(rule);
+            }
+
+        }
+	}
+}
+
+/*
+
+Enter number of productions
+3
+Enter productions
+E -> E+T|T
+T -> T*F|F
+F -> (E)|id
+
+
+E -> TE'
+E' -> +TE'|@
+T -> FT'
+T' -> *FT'|@
+F -> (E)|id
+
+*/

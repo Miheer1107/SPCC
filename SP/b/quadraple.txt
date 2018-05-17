@@ -1,0 +1,56 @@
+import java.io.*;
+import java.util.*;
+class Quad
+{
+	static int count=1;
+	static void popTwo(Stack stack,char ch)
+	{
+		String ch1=(stack.pop()).toString();
+		String ch2=(stack.pop()).toString();
+		char op=ch;
+		System.out.println("\n"+op+"\t"+ch2+"\t"+ch1+"\t"+"t"+count);
+		String temp="t"+count;
+		stack.push(temp);
+		count++;
+	}
+	public static void main(String args[])
+	{
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter the postfix expression:");
+		String input=scan.nextLine();
+		Stack stack=new Stack();
+		System.out.println("Op\tOper 1\tOper 2\tRes");
+		for(int i=0;i<input.length();i++)
+		{
+			char ch=input.charAt(i);
+			if(ch=='+' || ch=='-' || ch=='*' || ch=='/' || ch=='^')
+				popTwo(stack,ch);
+			else
+				stack.push(ch+"");
+		}
+	}
+}
+
+/*OUTPUT:
+
+students@CE-Lab6-608-U06:~/Desktop$ java Exp7
+Enter the postfix expression:
+abcd^e-fgh*+^*+i-
+Op	Oper 1	Oper 2	Res
+
+^	c	d	t1
+
+-	t1	e	t2
+
+*	g	h	t3
+
++	f	t3	t4
+
+^	t2	t4	t5
+
+*	b	t5	t6
+
++	a	t6	t7
+
+-	t7	i	t8
+*/

@@ -1,0 +1,27 @@
+// lex.l
+letter[a­zA­Z]  
+digit[0­9]
+%% 
+"if"|"else"|"int"|"char"|"boolean"|"double"|"switch"|"return"|"class"|"static"|"true"|"false"|"null"|"try"|"catch"|"do"|"while"|"void"|"for"|"float" printf("\n%s\t is keyword", yytext);  
+"private"|"public"|"protected" printf("\n%s\t is an access specifier", yytext);
+["\a"|"\\n"|"\\b"|"\t"|"\\t"|"\b"|"\\a"|"\n"|" "]+ printf("\n%s\tis escape sequence", yytext);  
+{letter}({letter}|{digit}|"_")* printf("\n%s\tis identifier", yytext);  
+"&&"|"<"|">"|"<="|">="|"="|"+"|"­"|"?"|"*"|"/"|"%"|"&"|"||" printf("\n%s\tis an operator", yytext);  
+"#"|"'"|"."|"\""|"\\"|";"|"," printf("\n%s\t is a special character", yytext);
+"{"|"}"|"["|"]"|"("|")" printf("\n%s\t is a parenthesis", yytext);  
+%%
+void main(){yylex();}
+
+
+// Input.java
+public class Input {
+        public static void main(String args[]) {
+                System.out.println("Hello world!");
+        }
+}
+
+
+// Execution steps
+- flex lex.l
+- gcc lex.yy.c -ll
+- ./a.out < Input.java
